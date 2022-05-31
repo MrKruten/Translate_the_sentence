@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { ReactComponent as User } from 'shared/images/User.svg';
+
 import { styles } from './style';
 
 interface ISentence {

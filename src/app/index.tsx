@@ -1,4 +1,5 @@
 import { Router } from 'pages';
+
 import { globals } from './globalStyles';
 import { withProviders } from './providers';
 

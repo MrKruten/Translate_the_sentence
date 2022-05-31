@@ -1,4 +1,6 @@
 import { Sentence } from 'entities/Sentence';
+import { Button } from 'shared/ui/Button';
+
 import { styles } from './styles';
 
 const phrase = 'She is eating an apple and and they are eating bread';
@@ -10,6 +12,7 @@ const MainPage = () => {
 			<div className={styles.container}>
 				<h1 className={styles.head}>Translate this sentence</h1>
 				<Sentence sentence={sentence} />
+				<Button>Check</Button>
 			</div>
 		</div>
 	);
