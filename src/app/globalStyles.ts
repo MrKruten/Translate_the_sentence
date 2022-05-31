@@ -102,9 +102,10 @@ export const globals = css`
 			line-height: 21px;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			background-color: #e5e5e5;
+			background-color: #f5f5f5;
 		}
-		#root {
+		#root,
+		#app {
 			height: 100%;
 		}
 	}
