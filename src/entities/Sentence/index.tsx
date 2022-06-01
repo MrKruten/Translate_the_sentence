@@ -5,7 +5,7 @@ import { ReactComponent as User } from 'shared/images/User.svg';
 import { styles } from './style';
 
 interface ISentence {
-	sentence: Array<string>;
+	sentence: string;
 }
 
 export const Sentence: FC<ISentence> = ({ sentence }) => (
@@ -14,7 +14,7 @@ export const Sentence: FC<ISentence> = ({ sentence }) => (
 			<User />
 		</div>
 		<div className={styles.sentence}>
-			{sentence.map((word, id) => (
+			{sentence.split(' ').map((word, id) => (
 				<span className={styles.word} key={`${word}-${id + 1}`}>
 					{word}
 				</span>

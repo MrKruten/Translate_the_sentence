@@ -18,8 +18,8 @@ export const styles = {
 	`,
 	container: css`
 		width: 500px;
-		button {
-			margin-top: 80px;
-		}
+	`,
+	marginWrapper: css`
+		margin-top: 40px;
 	`,
 };
