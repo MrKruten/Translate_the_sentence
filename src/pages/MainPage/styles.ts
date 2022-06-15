@@ -14,12 +14,12 @@ export const styles = {
 		line-height: 42px;
 		color: #252525;
 		text-shadow: -2px -4px 3px #ffffff, 2px 4px 3px rgba(0, 0, 0, 0.25);
-		margin-bottom: 64px;
+		margin-bottom: 50px;
 	`,
 	container: css`
 		width: 500px;
 	`,
-	marginWrapper: css`
+	marginWrapperWords: css`
 		margin-top: 40px;
 	`,
 };

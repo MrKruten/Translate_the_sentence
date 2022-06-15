@@ -4,14 +4,9 @@ import { styles } from './styles';
 
 interface INotification {
 	isError: boolean;
-	isShow: boolean;
 }
 
-export const Notification: FC<INotification> = ({ isError, isShow }) => {
-	if (!isShow) {
-		return null;
-	}
-
+export const Notification: FC<INotification> = ({ isError }) => {
 	return (
 		<div className={styles.notification} data-success={!isError}>
 			{isError ? 'Something wrong' : 'Success'}

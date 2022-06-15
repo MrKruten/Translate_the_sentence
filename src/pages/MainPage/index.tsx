@@ -1,27 +1,23 @@
-import { useState } from 'react';
-
 import { Sentence } from 'entities/Sentence';
-import { Button } from 'shared/ui/Button';
-import { Notification } from 'entities/Notification';
+import { DropList } from 'widgets/DropList';
 
 import { styles } from './styles';
 
-const phrase = 'She is eating an apple and and they are eating bread';
+const phrases = {
+	ru: 'Я люблю хоккей, но у меня нет любимой команды',
+	en: 'I like hockey, but I dont`t have a favorite team',
+};
 
 const MainPage = () => {
-	const sentence = phrase;
-	const [isError, setIsError] = useState(true);
+	const sentence = phrases;
 
 	return (
 		<div className={styles.page}>
 			<div className={styles.container}>
 				<h1 className={styles.head}>Translate this sentence</h1>
-				<Sentence sentence={sentence} />
-				<div className={styles.marginWrapper}>
-					<Notification isError={isError} isShow={false} />
-				</div>
-				<div className={styles.marginWrapper}>
-					<Button>Check</Button>
+				<Sentence sentence={sentence.ru} />
+				<div className={styles.marginWrapperWords}>
+					<DropList sentence={sentence.en} />
 				</div>
 			</div>
 		</div>
