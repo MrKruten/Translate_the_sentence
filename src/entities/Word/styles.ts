@@ -25,9 +25,5 @@ export const styles = {
 			background: #e6e6e6;
 			box-shadow: inset 0 8px 4px -6px rgba(0, 0, 0, 0.25);
 		}
-
-		&[data-is-draggable='true'] {
-			background: lightgray;
-		}
 	`,
 };

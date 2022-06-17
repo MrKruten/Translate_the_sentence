@@ -17,7 +17,7 @@ export const styles = {
 		margin-bottom: 50px;
 	`,
 	container: css`
-		width: 500px;
+		width: 520px;
 	`,
 	marginWrapperWords: css`
 		margin-top: 40px;

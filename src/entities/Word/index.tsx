@@ -4,9 +4,7 @@ import { styles } from './styles';
 
 export type TItem = {
 	id: string;
-	order: number;
 	word: string;
-	isDraggable: boolean;
 };
 
 interface IWord {
@@ -41,7 +39,6 @@ export const Word: FC<IWord> = ({
 			id={`${word.id}`}
 			className={styles.word}
 			data-is-empty={!word.word}
-			data-is-draggable={word.isDraggable}
 			draggable={!!word.word}
 			onDragOver={dragOverHandler && (e => dragOverHandler(e))}
 			onDragLeave={dragLeaveHandler && (e => dragLeaveHandler(e))}
