@@ -1,4 +1,4 @@
-import { combine, createEvent, createStore, restore, sample } from 'effector';
+import { createEvent, createStore, restore, sample } from 'effector';
 
 import { TItem } from 'entities/Word';
 import { SentenceModel } from 'entities/Sentence';
@@ -50,32 +50,30 @@ const $mustLength = SentenceModel.$sentence.map(
 		sentence.en.split(' ').length + (6 - (sentence.en.split(' ').length % 6))
 );
 
-const $combine = combine({ mustLength: $mustLength, boards: $boards });
-
-const $newBoards = $combine.map(store => {
-	if (store.boards[0].items.length < store.mustLength) {
-		const mustCountEmpties = store.boards[0].items.length % 6;
-		const arr: Array<TItem> = [];
-
-		for (let i = 6 - mustCountEmpties; i > 0; i--) {
-			arr.push({
-				id: `${Math.floor(Math.random() * 10000)}-empty`,
-				word: '',
-			});
-		}
-
-		store.boards[0].items = [...store.boards[0].items, ...arr];
-		return store.boards;
-	}
-	if (store.boards[0].items.length > store.mustLength) {
-		store.boards[0].items.splice(store.boards[0].items.length - 1, 1);
-		return store.boards;
-	}
-	return store.boards;
-});
-
 sample({
-	clock: $newBoards,
+	clock: $boards,
+	source: $mustLength,
+	fn: (mustLength, boards) => {
+		if (boards[0].items.length < mustLength) {
+			const mustCountEmpties = boards[0].items.length % 6;
+			const arr: Array<TItem> = [];
+
+			for (let i = 6 - mustCountEmpties; i > 0; i--) {
+				arr.push({
+					id: `${Math.floor(Math.random() * 10000)}-empty`,
+					word: '',
+				});
+			}
+
+			boards[0].items = [...boards[0].items, ...arr];
+			return boards;
+		}
+		if (boards[0].items.length > mustLength) {
+			boards[0].items.splice(boards[0].items.length - 1, 1);
+			return boards;
+		}
+		return boards;
+	},
 	target: $boards,
 });
 
