@@ -36,7 +36,7 @@ export const Word: FC<IWord> = ({
 }) => {
 	return (
 		<div
-			id={`${word.id}`}
+			id={word.id}
 			className={styles.word}
 			data-is-empty={!word.word}
 			draggable={!!word.word}
